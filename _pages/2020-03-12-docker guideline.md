@@ -1,6 +1,9 @@
 ---
-title: docker-compose guideline
-date: 2020-03-12
+title: "docker 가이드라인 dockerfile docker-compose를 이용한 django mysql redis celery 구축하기"
+categories:
+    - blogging
+last_modified_at: 2020-03-12T17:20:00:00+09:00
+toc: true
 ---
 # docker-compose guide
 
