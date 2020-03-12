@@ -1,1 +1,1 @@
-# 블로그
+# minimalmistakesjekyllgemdemo

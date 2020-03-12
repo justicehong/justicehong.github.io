@@ -26,6 +26,9 @@ ports : 외부에서 접속시 포트 : 내부에 접속될 포트
 volumes : 바인드 마운팅 시 도커 안에서의 경로 : 컨테이너 안의 경로
 command : 컨테이너 실행 후 실행될 
 tty : 컴포즈의 경우 커맨드를 실행한 뒤 종류 되는 데. 종류되는 것을 방지하기 위한 옵션
+build : image 항목 대신 도커파일을 가져와서 빌드하겠다는 내용
+    - context : Docker 빌드 명령어를 실행할 위치
+    - dockerfile : 도커 파일 위치
 
 
 ## docker-compose.yml file
@@ -72,7 +75,7 @@ tty : 컴포즈의 경우 커맨드를 실행한 뒤 종류 되는 데. 종류�
             #    dockerfile: ./Dockerfile
             ports:
                 - "0.0.0.0:7770:8000"
-                        depends_on:
+            depends_on:
                 - sample-project-db
                 - sample-project-cache
             links:
@@ -90,7 +93,6 @@ tty : 컴포즈의 경우 커맨드를 실행한 뒤 종류 되는 데. 종류�
             build:
                 context: .
                 dockerfile: ./Dockerfile
-
             depends_on:
                 - sample-project-db
                 - sample-project-cache
@@ -104,6 +106,10 @@ tty : 컴포즈의 경우 커맨드를 실행한 뒤 종류 되는 데. 종류�
                 - .:/sample-project/sample-project
                 - sample-project-media-volume:/sample-project/sample-project-media:Z
 
+
+Dockerfile 의 내용이다
+
+FROM : 어떤 이미지를 사용해서 빌드를 할 것인지 선언
 
 ## Dockerfile file
     FROM ubuntu:16.04
