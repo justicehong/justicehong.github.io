@@ -1,11 +1,17 @@
 ---
 title: "docker 가이드라인 dockerfile docker-compose를 이용한 django mysql redis celery 구축하기"
-categories:
-    - blogging
+categories: [Blog]
 last_modified_at: 2020-03-12T17:20:00:00+09:00
 toc: true
 ---
 # docker-compose guide
+
+도커 컴포즈를 활용하는 이유
+1. 여러 개발환경에서 테스트 할 시 프로그램 및 패키지 간의 설치 에러 문제등 발생할 수 있다
+2. 여러 환경 변수들 간의 꼬임을 방지
+3. 서버를 다른 곳에 배포를 해주기 위한 수작업할 필요성이 낮아지며 개발환경 및 서버환경이 같지 않아지는 문제를 줄여줌
+4. 개발 환경 구성에 대한 지속적 업데이트는 매우 힘들기 떄문에 컴포즈를 통해 관리
+
 
 도커-컴포즈를 시작하기 위해서는 우선 대표적인 파일 2가지가 필요하다.
 docker-compose.yml , Dockerfile 
@@ -148,6 +154,9 @@ WORKDIR : 저기 디렉토리에서부터 명령어를 실행하겠다.
     ADD . /sample-project/sample-project
     WORKDIR /sample-project/sample-project
 
+
+requirements.txt 파일은 docker-compose up을 시켰을 떄. command를 통해 다운로드 받는다.
+( 순차적으로 도커 파일에 테스트하면서 다 올릴 예정 )
 
 ## requirements.txt file
     django
