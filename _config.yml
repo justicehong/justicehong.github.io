@@ -7,7 +7,7 @@
 
 # theme: "minimal-mistakes-jekyll"
 
-remote_theme: mmistakes/minimal-mistakes@4.10.0
+remote_theme: https://github.com/justicehong/justicehong.github.io
 
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -17,9 +17,9 @@ title                    : "Site Title"
 title_separator          : "-"
 name                     : "Your Name"
 description              : "An amazing website."
-url                      : "https://shoreviewanalytics.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "/minimalmistakesjekyllgemdemo" # the subpath of your site, e.g. "/blog"
-repository               : "shoreviewanalytics/minimalmistakesjekyllgemdemo" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+url                      : "127.0.0.1" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
+repository               : "justicehong/justicehong" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -254,8 +254,8 @@ compress_html:
 defaults:
   # _posts
   - scope:
-      path: ""
-      type: posts
+      path: "_pages"
+      type: pages
     values:
       layout: single
       author_profile: true
