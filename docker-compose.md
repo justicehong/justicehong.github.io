@@ -110,6 +110,11 @@ build : image 항목 대신 도커파일을 가져와서 빌드하겠다는 내�
 Dockerfile 의 내용이다
 
 FROM : 어떤 이미지를 사용해서 빌드를 할 것인지 선언
+ENV : 환경 변수 지정
+RUN : 해당 명령어들을 순차적으로 실행
+ADD : 이미지 빌드 시 바인드 마운트를 한다 ( compose 에 volumes는 컴포즈를 실행시킬떄 일시적으로 이어지지만 ADD는 빌드시에 가져오는 것이라 영구적이라 보면 됨 )
+WORKDIR : 저기 디렉토리에서부터 명령어를 실행하겠다.
+
 
 ## Dockerfile file
     FROM ubuntu:16.04
