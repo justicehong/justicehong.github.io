@@ -5,8 +5,8 @@ date: 2020-03-12
 # docker-compose guide
 
 ## docker-compose file
-version: "4.7"
-volumes:  # Container 들에서 사용되는 Volume을 정의한다.
+    version: "4.7"
+    volumes:  # Container 들에서 사용되는 Volume을 정의한다.
     sample-project-db-volume: {}
     sample-project-cache-volume: {}
     sample-project-media-volume: {}
