@@ -80,3 +80,33 @@ date: 2020-03-12
             volumes:
                 - .:/sample-project/sample-project
                 - sample-project-media-volume:/sample-project/sample-project-media:Z
+
+
+## Dockerfile file
+    FROM ubuntu:16.04
+
+    ENV PYTHONUNBUFFERED 1
+    ENV PPYTHONENCODING utf-8
+
+    RUN apt-get update -y
+    RUN apt-get install -y software-properties-common build-essential python3 python3-dev python3-pip libmysqlclient-dev language-pack-ko
+
+    RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+    ENV LANG ko_KR.UTF-8
+    ENV LANGUAGE ko_KR.UTF-8
+    ENV LC_ALL ko_KR.UTF-8
+    RUN locale-gen ko_KR.UTF-8
+    RUN ln -fs /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+    RUN dpkg-reconfigure --frontend noninteractive tzdata
+
+    RUN python3 -m pip install pip --upgrade
+    RUN python3 -m pip install wheel
+    RUN pip install mysqlclient
+
+    RUN pip install django_select2
+    RUN pip install django_celery_beat
+    RUN pip install django_celery_results
+    RUN pip install numpy
+
+    ADD . /sample-project/sample-project
+    WORKDIR /sample-project/sample-project
