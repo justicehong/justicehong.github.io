@@ -55,10 +55,9 @@ date: 2020-03-12
                 - sample-project-db:sample-project-db
                 - sample-project-cache:sample-project-cache
             tty: true
-            command: bash -c "source /puzzleai_django/bin/activate && pip3 install -r requirements.txt && uwsgi --ini puzzleai_uwsgi.ini && python3 /puzzleai/manage.py runserver 0.0.0.0:8000 && python3 /puzzleai/manage.py makemigrations puzzleai"
-            #command: bash -c "source /puzzleai_django/bin/activate && pip3 install -r requirements.txt && while true; do python3 /puzzleai/manage.py runserver 0.0.0.0:8000 && uwsgi --ini puzzleai_uwsgi.ini; sleep 2; done"
+            command: bash -c "source /venv/bin/activate && pip3 install -r requirements.txt && uwsgi --ini uwsgi.ini && python3 manage.py runserver 0.0.0.0:8000 && python3 manage.py makemigrations {db}"
             volumes:
-                - ./uploadvoice:/puzzleai
+                - .:/sample-project/sample-project
                 - sample-project-media-volume:/sample-project/sample-project-media:Z
 
         sample-project-task:
@@ -76,7 +75,7 @@ date: 2020-03-12
                 - sample-project-db:sample-project-db
                 - sample-project-cache:sample-project-cache
             #command: bash -c "pip3 install -r requirements.txt"
-            command: bash -c "pip3 install -r requirements.txt && python3 -m celery worker --beat -l DEBUG --logfile=logfile/celery1%I.log --pidfile=logfile/celery1.pid --hostname=celery1@026d1d0ece14"
+            command: bash -c "pip3 install -r requirements.txt && python3 -m celery worker --beat -l DEBUG --logfile=logfile/celery1%I.log --pidfile=logfile/celery1.pid --hostname=celery1@컨테이너이름"
             volumes:
                 - .:/sample-project/sample-project
                 - sample-project-media-volume:/sample-project/sample-project-media:Z
