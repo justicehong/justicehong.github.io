@@ -19,23 +19,23 @@ docker-compose.yml , Dockerfile
 
 docker-compose 의 경우
 
-$ docker-compose up
-$ docker-compose down
-$ docker-compose down -v [ 볼륨 드라이버까지 삭제 ]
-$ docker-compose build [ 빌드 ]
+    $ docker-compose up
+    $ docker-compose down
+    $ docker-compose down -v [ 볼륨 드라이버까지 삭제 ]
+    $ docker-compose build [ 빌드 ]
 
 위에 명령어들을 대표적으로 사용한다.
 
 docker-compose.yml 파일의 내용을 보면
 
-container_name : 컨테이너 이름 지정
-image : 컨테이너로 생성할 이미지
-environment : MysqlDB 생성시 기본 설정 관련
-ports : 외부에서 접속시 포트 : 내부에 접속될 포트
-volumes : 바인드 마운팅 시 도커 안에서의 경로 : 컨테이너 안의 경로
-command : 컨테이너 실행 후 실행될 
-tty : 컴포즈의 경우 커맨드를 실행한 뒤 종류 되는 데. 종류되는 것을 방지하기 위한 옵션
-build : image 항목 대신 도커파일을 가져와서 빌드하겠다는 내용
+1. container_name : 컨테이너 이름 지정
+2. image : 컨테이너로 생성할 이미지
+3. environment : MysqlDB 생성시 기본 설정 관련
+4. ports : 외부에서 접속시 포트 : 내부에 접속될 포트
+5. volumes : 바인드 마운팅 시 도커 안에서의 경로 : 컨테이너 안의 경로
+6. command : 컨테이너 실행 후 실행될 
+7. tty : 컴포즈의 경우 커맨드를 실행한 뒤 종류 되는 데. 종류되는 것을 방지하기 위한 옵션
+8. build : image 항목 대신 도커파일을 가져와서 빌드하겠다는 내용
     - context : Docker 빌드 명령어를 실행할 위치
     - dockerfile : 도커 파일 위치
 
@@ -118,11 +118,11 @@ build : image 항목 대신 도커파일을 가져와서 빌드하겠다는 내�
 
 Dockerfile 의 내용이다
 
-FROM : 어떤 이미지를 사용해서 빌드를 할 것인지 선언
-ENV : 환경 변수 지정
-RUN : 해당 명령어들을 순차적으로 실행
-ADD : 이미지 빌드 시 바인드 마운트를 한다 ( compose 에 volumes는 컴포즈를 실행시킬떄 일시적으로 이어지지만 ADD는 빌드시에 가져오는 것이라 영구적이라 보면 됨 )
-WORKDIR : 저기 디렉토리에서부터 명령어를 실행하겠다.
+1. FROM : 어떤 이미지를 사용해서 빌드를 할 것인지 선언
+2. ENV : 환경 변수 지정
+3. RUN : 해당 명령어들을 순차적으로 실행
+4. ADD : 이미지 빌드 시 바인드 마운트를 한다 ( compose 에 volumes는 컴포즈를 실행시킬떄 일시적으로 이어지지만 ADD는 빌드시에 가져오는 것이라 영구적이라 보면 됨 )
+5. WORKDIR : 저기 디렉토리에서부터 명령어를 실행하겠다.
 
 
 ## Dockerfile file
